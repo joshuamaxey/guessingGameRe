@@ -70,12 +70,20 @@ function checkGuess (num) {
 
 function askGuess () {
     rl.question("Enter a guess: ", num => {
-        checkGuess(Number(num))
-        rl.close();
+        let guessedNumber = checkGuess(Number(num));
+
+        if (guessedNumber === false) {
+            console.log('Guess again.');
+            return askGuess();
+        } else if (guessedNumber === true) {
+            rl.close();
+        }
     });
-}
+
+};
 
 askGuess();
+
 
 
 // When accepting user input, there is a very important nuance to take into
@@ -100,6 +108,7 @@ askGuess();
 // program a few times, entering different numbers. After trying a single guess,
 // you will have to run the program again. Be sure to include an attempt with a
 // correct guess by entering the `secretNumber` value that you hard-coded.
+
 
 // Once you have verified that the user's guess is being properly checked, let's
 // work on having the function ask the user for another guess if they are
