@@ -1,3 +1,12 @@
+const readline = require("readline");  // THIS imports the readline module into our file.
+
+// Next, we create an infterface wehre we can talk to the user.
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 // ## Phase I: Too High? Too Low? Who knows.
 
 // Begin by creating a folder called `guessing-game-project`. Open the folder in
@@ -20,14 +29,14 @@ let secretNumber = 20;
 //   and return `false`
 // - when the argument is equal to `secretNumber`, it should print 'Correct!' and
 //   return `true`
-function checkGuess (number) {
-    if (number > secretNumber) {
+function checkGuess (num) {
+    if (num > secretNumber) {
         console.log('Too high.');
         return false;
-    } else if (number < secretNumber) {
+    } else if (num < secretNumber) {
         console.log('Too low.');
         return false;
-    } else if (number === secretNumber) {
+    } else if (num === secretNumber) {
         console.log('Correct!')
         return true;
     }
@@ -58,6 +67,16 @@ function checkGuess (number) {
 // docs][question-doc]. Once the user enters their number, the `checkGuess`
 // function should be called with their number as an argument and the interface
 // should be [closed][close-doc].
+
+function askGuess () {
+    rl.question("Enter a guess: ", num => {
+        checkGuess(Number(num))
+        rl.close();
+    });
+}
+
+askGuess();
+
 
 // When accepting user input, there is a very important nuance to take into
 // account. When the user enters their guess it will be interpreted as a string of
