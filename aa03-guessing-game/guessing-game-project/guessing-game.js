@@ -76,6 +76,7 @@ function askGuess () {
             console.log('Guess again.');
             return askGuess();
         } else if (guessedNumber === true) {
+            console.log('You win!')
             rl.close();
         }
     });
