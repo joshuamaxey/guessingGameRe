@@ -12,7 +12,7 @@ function askRange () {
         rl.question("Max Number: ", max => {
             console.log("I'm thinking of a number between " + min + " and " + max + ".");
             secretNumber = randomInRange(min, max);
-            console.log(secretNumber)
+            // console.log(secretNumber)
             askGuess();
         })
 
@@ -39,6 +39,7 @@ function checkGuess (num) {
 };
 
 function askGuess () {
+
     rl.question("Enter a guess: ", num => {
         let guessedNumber = checkGuess(Number(num));
 
@@ -53,5 +54,3 @@ function askGuess () {
 };
 
 askRange()
-
-//=========================BONUS============================
