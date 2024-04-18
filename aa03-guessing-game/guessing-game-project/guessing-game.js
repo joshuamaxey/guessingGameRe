@@ -13,6 +13,14 @@ let secretNumber = Math.floor(Math.random() * 100);
 //     return Math.floor(Math.random() * (maxValue - minValue) + minValue);
 // };
 
+rl.question ("minNum: ", randomInRange);
+
+
+function randomInRange (minNum) {
+    rl.question ("maxNum: ", maxNum)
+};
+
+
 function checkGuess (num) {
     if (num > secretNumber) {
         console.log('Too high.');
@@ -42,7 +50,7 @@ function askGuess () {
 };
 
 // randomInRange(10, 100);
-askGuess();
+//askGuess();
 
 // ## Phase II: Making it Random
 
